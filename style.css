@@ -1,0 +1,325 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;500;700&display=swap"); */
+
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500;700&display=swap");
+
+:root {
+	--fs-base: 18px;
+	/* --ff-base: "Red Hat Text", sans-serif; */
+	/* --ff-base: "Courier New", Courier, monospace; */
+	--ff-base: "Source Code Pro", monospace;
+	--grayish-blue: hsl(237, 18%, 59%);
+	--soft-red: hsl(345, 95%, 68%);
+	--white: hsl(0, 0%, 100%);
+	--dark-desaturated-blue: hsl(236, 21%, 26%);
+	--very-dark-blue: hsl(235, 16%, 14%);
+	--mostly-black-blue: hsl(234, 17%, 12%);
+	--purple-hills: hsl(289, 15%, 14%);
+	--timer-top: rgb(44, 44, 68);
+	--timer-mid: rgb(53, 54, 78);
+	--timer-bottom: rgb(52, 54, 79);
+	--star-color: hsl(257, 19%, 14%);
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: var(--ff-base);
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fs-base);
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stars {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(./images/bg-stars.svg);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: contain;
+	z-index: 2;
+}
+
+.hills {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(./images/pattern-hills.svg);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-color: var(--star-color);
+	background-size: contain;
+}
+
+.main-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: space-evenly;
+	z-index: 100;
+}
+
+.text {
+	color: var(--white);
+	letter-spacing: 8px;
+	text-align: center;
+	/* padding: 5rem 1rem; */
+}
+
+.timer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+}
+
+.timer__background {
+	position: relative;
+	width: 130px;
+	aspect-ratio: 1;
+	/* background: linear-gradient(
+		to bottom,
+		var(--timer-top),
+		var(--timer-top) 49%,
+		var(--timer-mid) 49%,
+		var(--timer-mid) 51%,
+		var(--timer-bottom) 51%,
+		var(--timer-bottom)
+	); */
+	background: var(--timer-bottom);
+	margin-inline: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0px 8px 0px 0px var(--mostly-black-blue);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* overflow: hidden; */
+}
+
+.timer-overlay {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+	background: linear-gradient(
+		to bottom,
+		#00000044,
+		#00000044 50%,
+		#00000000 50%,
+		#00000000
+	);
+	border-radius: 0.5rem;
+}
+
+.semi-circle1 {
+	position: absolute;
+	left: -6px;
+	width: 12px;
+	aspect-ratio: 1;
+	border-radius: 0 50% 50% 0;
+	background: linear-gradient(
+		to right,
+		#ffffff00,
+		#ffffff00 50%,
+		var(--mostly-black-blue) 50%,
+		var(--mostly-black-blue)
+	);
+	z-index: 4;
+}
+
+.semi-circle2 {
+	position: absolute;
+	right: -6px;
+	width: 12px;
+	aspect-ratio: 1;
+	border-radius: 50% 0 0 50%;
+	background: linear-gradient(
+		to left,
+		#ffffff00,
+		#ffffff00 50%,
+		var(--mostly-black-blue) 50%,
+		var(--mostly-black-blue)
+	);
+	z-index: 4;
+}
+
+.timer__label {
+	text-align: center;
+	color: var(--grayish-blue);
+	font-weight: 500;
+	font-size: small;
+	letter-spacing: 4px;
+	margin-top: 1rem;
+}
+
+.social {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+svg {
+	margin-inline: 1.5rem;
+	margin-top: 5rem;
+}
+
+.facebook,
+.pinterest,
+.instagram {
+	fill: var(--grayish-blue);
+}
+
+.facebook:hover,
+.pinterest:hover,
+.instagram:hover {
+	fill: var(--soft-red);
+}
+
+.countdown-timer,
+.countdown-timer2,
+.countdown-timer3,
+.countdown-timer4 {
+	font-size: 4.5rem;
+	font-weight: bold;
+	color: var(--soft-red);
+}
+
+.countdown-timer2 {
+	transform: rotatX(180deg);
+}
+
+.flipper-card {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+	/* background: yellow; */
+	background: var(--timer-top);
+	/* background: linear-gradient(
+		to bottom,
+		var(--timer-top),
+		var(--timer-top) 50%,
+		var(--timer-bottom) 50%,
+		var(--timer-bottom)
+	); */
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 3;
+	clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+	/* backface-visibility: hidden; */
+	animation: card-flipper 1s linear infinite;
+	animation-delay: 0.5s;
+}
+
+.flipper-card2 {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+	/* background: yellow; */
+	background: var(--timer-bottom);
+	/* background: linear-gradient(
+		to bottom,
+		var(--timer-top),
+		var(--timer-top) 50%,
+		var(--timer-bottom) 50%,
+		var(--timer-bottom)
+	); */
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	/* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); */
+	clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+	transform: perspective(20rem) rotateX(180deg);
+	/* backface-visibility: hidden; */
+	animation: card-flipper2 1s linear infinite;
+	animation-delay: 0.5s;
+	/* display: none; */
+}
+
+.flipper-card3 {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+	/* background: yellow; */
+	background: var(--timer-top);
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+.flipper-card4 {
+	position: absolute;
+	width: 100%;
+	aspect-ratio: 1;
+	background: yellow;
+	background: var(--timer-bottom);
+	border-radius: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
+	/* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%); */
+	clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+@keyframes card-flipper {
+	0% {
+		transform: perspective(20rem) rotateX(360deg);
+	}
+	/* 25% {
+		transform: perspective(20rem) rotateX(315deg);
+	}
+	50% {
+		transform: perspective(20rem) rotateX(270deg);
+	}
+	75% {
+		transform: perspective(20rem) rotateX(225deg);
+	} */
+	50% {
+		transform: perspective(20rem) rotateX(270deg);
+	}
+	100% {
+		transform: perspective(20rem) rotateX(270deg);
+	}
+}
+
+@keyframes card-flipper2 {
+	0% {
+		transform: perspective(20rem) rotateX(180deg);
+	}
+	/* 25% {
+		transform: perspective(20rem) rotateX(315deg);
+	}
+	50% {
+		transform: perspective(20rem) rotateX(270deg);
+	}
+	75% {
+		transform: perspective(20rem) rotateX(225deg);
+	} */
+	100% {
+		transform: perspective(20rem) rotateX(0deg);
+	}
+}
